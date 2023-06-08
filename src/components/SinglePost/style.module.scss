@@ -1,70 +1,47 @@
-
 // @import url("../../../styles/base.scss");
-.flexPost{
+.flexPost {
+  display: flex;
+  flex-direction: column;
 
-    display: flex;
-    flex-direction: column;
-
-.SinglePost{
-   .postImage{
-    height: 350px;
-    object-fit: cover;
-    img{
-width:100%;
-height: 100%;
-    }
-   } 
-.postBody{
-    padding: 40px;
-    border-right: 1px solid #eee;
-    border-left: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-   .postTitle{
-    h3{
-        color: #f48840;
-    }
-   }
-   .postHeadLine{
-    h3{
-
-    }
-
-   }
-   .postInfo{
-
-   }
-   .postDescription{
-
-   }
-   .postFooter{
-    display: flex;
-    justify-content: space-between;
-    color:#aaa;
-    font-size: 14px;
-    svg{
-        color:#f48840
-    }
-   }
-}
-   
-}
-.padding{
-    padding: 40px;
-    button{
+  .SinglePost {
+    .postImage {
+      height: 350px;
+      object-fit: cover;
+      img {
         width: 100%;
-        background-color: #f48840;
-        padding: 10px;
-        height: 60px;
-        outline: none;
-        cursor: pointer;
-        border:0;
-        color:#fff;
-        transition: all 0.5s ease-in;
-        &:hover{
-            background-color: #f7b385;
-        }
+        height: 100%;
+      }
     }
-    
- 
-
-}}
+    .postBody {
+      padding: 40px;
+      border-right: 1px solid #eee;
+      border-left: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      .postTitle {
+        h3 {
+          color: #f48840;
+        }
+      }
+      .postHeadLine {
+        h3 {
+        }
+      }
+      .postInfo {
+      }
+      .postDescription {
+      }
+      .postFooter {
+        display: flex;
+        justify-content: space-between;
+        color: #aaa;
+        font-size: 14px;
+        svg {
+          color: #f48840;
+        }
+      }
+    }
+  }
+  .padding {
+    padding: 40px;
+  }
+}

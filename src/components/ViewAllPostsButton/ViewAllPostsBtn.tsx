@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from "./style.module.scss";
 
 const  ViewAllPostsBtn = () => {
   return (
-    <button>
-      View All Posts
+    <button className={styles.button}>
+      View All Posts ..
     </button>
   )
 }
