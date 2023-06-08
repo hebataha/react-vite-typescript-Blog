@@ -1,0 +1,36 @@
+.RecentPosts {
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
+  .recentTitle {
+    h3 {
+      font-size: 18px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #20232e;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .recentBody {
+    border-bottom: 1px solid #eee;
+
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    h3 {
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #20232e;
+
+    }
+    .date{
+        color:#aaa
+    }
+  }
+}
