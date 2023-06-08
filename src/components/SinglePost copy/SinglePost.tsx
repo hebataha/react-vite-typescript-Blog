@@ -11,7 +11,7 @@ const SinglePost: React.FC = () => {
     
 
   return (
-    <div className={styles.flexPost}>
+    <>
     <div className={styles.SinglePost}>
       <div className={styles.postImage}>
         <img src={imgPost} />
@@ -54,7 +54,7 @@ const SinglePost: React.FC = () => {
     <ViewAllPostsBtn/>
     </div>
     
-        </div>
+        </>
   );
 };
 export default SinglePost;
