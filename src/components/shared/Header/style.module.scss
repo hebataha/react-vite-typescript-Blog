@@ -1,0 +1,30 @@
+
+// @import url("../../../styles/base.scss");
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    .logo{
+        font-weight: 500;
+    }
+    nav{
+       
+        ul{
+            display: flex;
+            gap: 15px;
+            li{
+                list-style: none;
+            }
+            button{
+                background-color: #20232e;
+                // padding: 15px;
+                border-radius: 10px;
+                color:#fff;
+                cursor: pointer;
+            }
+        }
+   
+    }
+}
