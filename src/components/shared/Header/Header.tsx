@@ -19,8 +19,8 @@ import { Link } from '@mongez/react-router'
              
         </li>
         <li>
-        <Link to='/home'>
-        Recent Posts
+        <Link to='/singlePosts'>
+         Posts
 
             </Link>
         </li>

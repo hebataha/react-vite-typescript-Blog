@@ -11,6 +11,7 @@ const SinglePost: React.FC = () => {
     
 
   return (
+    <div className="container">
     <div className={styles.flexPost}>
     <div className={styles.SinglePost}>
       <div className={styles.postImage}>
@@ -53,7 +54,7 @@ const SinglePost: React.FC = () => {
     <div className={styles.padding}>
     <ViewAllPostsBtn/>
     </div>
-    
+    </div>
         </div>
   );
 };

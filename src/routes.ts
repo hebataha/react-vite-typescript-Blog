@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact"
 import PolicyAndPrivacy from "./components/PolicyAndPrivacy/PolicyAndPrivacy"
 import NotFound from "./components/NotFound/NotFound"
 import BaseLayout from "./components/BaseLayout";
+import SinglePost from "./components/SinglePost/SinglePost";
 router.partOf(BaseLayout, [
     {
       path: "/",
@@ -23,7 +24,10 @@ router.partOf(BaseLayout, [
         path:"policy-Privacy"  ,
         component:PolicyAndPrivacy
       },
-
+      {
+        path:"singlePosts"  ,
+        component:SinglePost
+      },
   ]);
 router.add('/', HomePage);
 router.add('/home', HomePage);
