@@ -9,7 +9,10 @@ import { Link } from "@mongez/react-router";
 
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
+
   return (
+    <>
+     
     <div className="container">
       <div className={styles.flexPost}>
         <div className={styles.SinglePost}>
@@ -17,9 +20,10 @@ const Posts: React.FC = () => {
             <img src={imgPost} />
           </div>
           <div className={styles.postBody}>
-            <Link to="/singlePosts">
+            <Link to="/singlePosts/1">
               <div className={styles.postTitle}>
                 <h3>LIFESTYLE</h3>
+                
               </div>
               <div className={styles.postHeadLine}>
                 <h3>Best Template Website For HTML CSS</h3>
@@ -58,11 +62,14 @@ const Posts: React.FC = () => {
           </div>
         </div>
 
+
+
         <div className={styles.padding}>
           <ViewAllPostsBtn />
         </div>
       </div>
     </div>
+    </>
   );
 };
 export default Posts;

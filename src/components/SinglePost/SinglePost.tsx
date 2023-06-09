@@ -5,12 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faTag, faShareNodes } from '@fortawesome/free-solid-svg-icons'
 import ViewAllPostsBtn from "../ViewAllPostsButton/ViewAllPostsBtn";
+import Helmet from "@mongez/react-helmet";
 
 library.add( faTag, faShareNodes)
-const SinglePost: React.FC = () => {
-    
-
+const SinglePost: React.FC = ({ params }) => {
+  const userId = params.id;
+  
   return (
+    <>
+    <Helmet appendAppName={false} title="Posts" description="Short description about my store" keywords={['online', 'store', 'electronics']} />
+ 
     <div className="container">
     <div className={styles.flexPost}>
     <div className={styles.SinglePost}>
@@ -54,6 +58,7 @@ const SinglePost: React.FC = () => {
   
     </div>
         </div>
+        </>
   );
 };
 export default SinglePost;

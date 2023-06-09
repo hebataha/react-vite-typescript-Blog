@@ -1,21 +1,15 @@
 import React from "react";
 import styles from "./style.module.scss";
-
+import Helmet from '@mongez/react-helmet';
 
 const About: React.FC = () => {
-    
-
   return (
     <>
-    <div className={styles.about}>
-   
+     <Helmet appendAppName={false} title="About Us" description="Short description about my store" keywords={['online', 'store', 'electronics']} />
+      <div className={styles.about}>
         <h1>About</h1>
-    
-    
-    </div>
-  
-    
-        </>
+      </div>
+    </>
   );
 };
 export default About;

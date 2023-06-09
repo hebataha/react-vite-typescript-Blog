@@ -36,7 +36,7 @@ router.partOf(BaseLayout, [
     component: PolicyAndPrivacy,
   },
   {
-    path: "singlePosts",
+    path: "singlePosts/:id",
     component: SinglePost,
   },
 ]);
