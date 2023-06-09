@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "./style.module.scss"
+import { Link } from '@mongez/react-router'
  const  Header:React.FC = () => {
   return (
     <div className={styles.header}>
@@ -7,19 +8,34 @@ import styles from "./style.module.scss"
       <nav>
         <ul>
         <li>
+          <Link to='/home'>
             Home
+            </Link>
         </li>
         <li>
-            About 
+        <Link to='/about'>
+        About
+            </Link>
+             
         </li>
         <li>
-            Recent Posts
+        <Link to='/home'>
+        Recent Posts
+
+            </Link>
         </li>
         <li>
-            Contact
+        <Link to='/contact'>
+        Contact
+            </Link>
+            
         </li>
         <li>
+        <Link to='/policy-Privacy
+'>
         Privacy and policy
+
+            </Link>
         </li>
         <button>
             ARA
