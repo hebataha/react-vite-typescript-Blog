@@ -5,7 +5,26 @@ import About from "./components/About/About"
 import Contact from "./components/Contact/Contact"
 import PolicyAndPrivacy from "./components/PolicyAndPrivacy/PolicyAndPrivacy"
 import NotFound from "./components/NotFound/NotFound"
+import BaseLayout from "./components/BaseLayout";
+router.partOf(BaseLayout, [
+    {
+      path: "/",
+      component: HomePage,
+    },
+    {
+      path:"about"  ,
+      component:About
+    },
+    {
+        path:"contact"  ,
+        component:Contact
+      },
+      {
+        path:"policy-Privacy"  ,
+        component:PolicyAndPrivacy
+      },
 
+  ]);
 router.add('/', HomePage);
 router.add('/home', HomePage);
 router.add('/about', About);

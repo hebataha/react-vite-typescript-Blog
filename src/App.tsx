@@ -10,7 +10,6 @@ import Tags from './components/Tags/Tags'
 
 function App() {
 
-
   return (
     <>
   <Header/>
@@ -24,11 +23,8 @@ function App() {
   <Catagories/>
   <Tags/>
   </div>
-
   </div>
- 
   <Footer/>
- 
     </>
   )
 }
