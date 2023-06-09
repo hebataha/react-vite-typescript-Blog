@@ -9,66 +9,61 @@ import { Link } from "@mongez/react-router";
 
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
-
   return (
     <>
-     
-    <div className="container">
-      <div className={styles.flexPost}>
-        <div className={styles.SinglePost}>
-          <div className={styles.postImage}>
-            <img src={imgPost} />
-          </div>
-          <div className={styles.postBody}>
-            <Link to="/singlePosts/1">
-              <div className={styles.postTitle}>
-                <h3>LIFESTYLE</h3>
-                
-              </div>
-              <div className={styles.postHeadLine}>
-                <h3>Best Template Website For HTML CSS</h3>
-              </div>
-
-              <div className={styles.postInfo}>
-                <span className={styles.auther}>Admin </span>
-                <span>|</span>
-                <span className={styles.date}>May 31, 2020</span>
-                <span>|</span>
-                <span className={styles.comments}>12 Comments</span>
-              </div>
-              <div className={styles.postDescription}>
-                <p>
-                  Stand Blog is a free HTML CSS template for your CMS theme. You
-                  can easily adapt or customize it for any kind of CMS or
-                  website builder. You are allowed to use it for your business.
-                  You are NOT allowed to re-distribute the template ZIP file on
-                  any template collection site for the download purpose. Contact
-                  TemplateMo for more info. Thank you.
-                </p>
-              </div>
-              <div className={styles.postFooter}>
-                <div className={styles.label}>
-                  <FontAwesomeIcon icon="tag" />
-                  <span> Beauty, </span>
-                  <span>Nature</span>
+      <div className="container">
+        <div className={styles.flexPost}>
+          <div className={styles.SinglePost}>
+            <div className={styles.postImage}>
+              <img src={imgPost} />
+            </div>
+            <div className={styles.postBody}>
+              <Link to="/singlePosts/1">
+                <div className={styles.postTitle}>
+                  <h3>LIFESTYLE</h3>
                 </div>
-                <div className={styles.share}>
-                  <FontAwesomeIcon icon="share-nodes" />
-                  <span> Facebook, </span>
-                  <span>Twitter</span>
+                <div className={styles.postHeadLine}>
+                  <h3>Best Template Website For HTML CSS</h3>
                 </div>
-              </div>
-            </Link>
+
+                <div className={styles.postInfo}>
+                  <span className={styles.auther}>Admin </span>
+                  <span>|</span>
+                  <span className={styles.date}>May 31, 2020</span>
+                  <span>|</span>
+                  <span className={styles.comments}>12 Comments</span>
+                </div>
+                <div className={styles.postDescription}>
+                  <p>
+                    Stand Blog is a free HTML CSS template for your CMS theme.
+                    You can easily adapt or customize it for any kind of CMS or
+                    website builder. You are allowed to use it for your
+                    business. You are NOT allowed to re-distribute the template
+                    ZIP file on any template collection site for the download
+                    purpose. Contact TemplateMo for more info. Thank you.
+                  </p>
+                </div>
+                <div className={styles.postFooter}>
+                  <div className={styles.label}>
+                    <FontAwesomeIcon icon="tag" />
+                    <span> Beauty, </span>
+                    <span>Nature</span>
+                  </div>
+                  <div className={styles.share}>
+                    <FontAwesomeIcon icon="share-nodes" />
+                    <span> Facebook, </span>
+                    <span>Twitter</span>
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
 
-
-
-        <div className={styles.padding}>
-          <ViewAllPostsBtn />
+          <div className={styles.padding}>
+            <ViewAllPostsBtn />
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

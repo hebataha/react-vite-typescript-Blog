@@ -40,5 +40,3 @@ router.partOf(BaseLayout, [
     component: SinglePost,
   },
 ]);
-
-

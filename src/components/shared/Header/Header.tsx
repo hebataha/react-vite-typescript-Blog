@@ -20,12 +20,7 @@ const Header: React.FC = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link
-              to="/policy-Privacy
-"
-            >
-              Privacy and policy
-            </Link>
+            <Link to="/policy-Privacy">Privacy and policy</Link>
           </li>
           <button>AR</button>
         </ul>
