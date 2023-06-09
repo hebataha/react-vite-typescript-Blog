@@ -51,9 +51,7 @@ const SinglePost: React.FC = () => {
       </div>
      
     </div>
-    <div className={styles.padding}>
-    <ViewAllPostsBtn/>
-    </div>
+  
     </div>
         </div>
   );

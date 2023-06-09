@@ -4,7 +4,7 @@ import styles from "./style.module.scss";
 const  ViewAllPostsBtn = () => {
   return (
     <button className={styles.button}>
-      View All Posts ..
+      View All Posts
     </button>
   )
 }

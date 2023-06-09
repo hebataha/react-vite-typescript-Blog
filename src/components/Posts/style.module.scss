@@ -28,9 +28,17 @@
       }
       .postInfo {
         display: flex;
-        gap:10px
+        gap:10px;
+        color:#aaa
       }
       .postDescription {
+        p{
+          width: 90%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+        
       }
       .postFooter {
         display: flex;
