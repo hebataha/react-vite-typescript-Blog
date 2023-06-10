@@ -1,4 +1,6 @@
 import React from "react";
+import { trans } from "@mongez/localization";
+import "../../../../vite-project/src/config/localization"
 import styles from "./style.module.scss";
 
 const RecentPosts: React.FC = () => {
@@ -6,7 +8,7 @@ const RecentPosts: React.FC = () => {
     <>
       <div className={styles.RecentPosts}>
         <div className={styles.recentTitle}>
-          <h3>RECENT POSTS</h3>
+          <h3>{trans("recentPosts")} </h3>
         </div>
 
         <div className={styles.recentBody}>

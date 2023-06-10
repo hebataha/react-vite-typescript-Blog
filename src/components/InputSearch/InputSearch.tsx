@@ -1,4 +1,6 @@
 import React from "react";
+import { trans } from "@mongez/localization";
+import "../../../../vite-project/src/config/localization"
 import styles from "./style.module.scss";
 
 const InputSearch: React.FC = () => {
@@ -6,7 +8,7 @@ const InputSearch: React.FC = () => {
     <>
       <div className={styles.InputSearch}>
         <form>
-          <input type="text" placeholder="type to search" />
+          <input type="text" placeholder={trans("typeToSearch") } />
         </form>
       </div>
     </>

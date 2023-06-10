@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTag, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import ViewAllPostsBtn from "../ViewAllPostsButton/ViewAllPostsBtn";
+import { trans } from "@mongez/localization";
+import "../../config/localization"
 import { Link } from "@mongez/react-router";
 
 library.add(faTag, faShareNodes);
@@ -27,11 +29,11 @@ const Posts: React.FC = () => {
                 </div>
 
                 <div className={styles.postInfo}>
-                  <span className={styles.auther}>Admin </span>
+                  <span className={styles.auther}>{trans("admin")} </span>
                   <span>|</span>
                   <span className={styles.date}>May 31, 2020</span>
                   <span>|</span>
-                  <span className={styles.comments}>12 Comments</span>
+                  <span className={styles.comments}>12 {trans("comments")}</span>
                 </div>
                 <div className={styles.postDescription}>
                   <p>
@@ -51,8 +53,8 @@ const Posts: React.FC = () => {
                   </div>
                   <div className={styles.share}>
                     <FontAwesomeIcon icon="share-nodes" />
-                    <span> Facebook, </span>
-                    <span>Twitter</span>
+                    <span> {trans("facebook")}, </span>
+                    <span>{trans("twitter")}</span>
                   </div>
                 </div>
               </Link>

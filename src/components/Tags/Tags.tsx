@@ -1,4 +1,6 @@
 import React from "react";
+import { trans } from "@mongez/localization";
+import "../../../../vite-project/src/config/localization"
 import styles from "./style.module.scss";
 
 const Tags: React.FC = () => {
@@ -6,7 +8,7 @@ const Tags: React.FC = () => {
     <>
       <div className={styles.Tags}>
         <div className={styles.TagsTitle}>
-          <h3>TAGS</h3>
+          <h3>{trans("tags")} </h3>
         </div>
 
         <div className={styles.TagsItems}>

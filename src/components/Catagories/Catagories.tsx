@@ -1,4 +1,6 @@
 import React from "react";
+import { trans } from "@mongez/localization";
+import "../../../../vite-project/src/config/localization"
 import styles from "./style.module.scss";
 
 const Catagories: React.FC = () => {
@@ -6,7 +8,7 @@ const Catagories: React.FC = () => {
     <>
       <div className={styles.Catagories}>
         <div className={styles.CatagoriesTitle}>
-          <h3>CATEGORIES</h3>
+          <h3>{trans("categories")}</h3>
         </div>
 
         <div className={styles.CatagoriesItems}>

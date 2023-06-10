@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { trans } from "@mongez/localization";
+import "../../../config/localization"
 import { Link } from "@mongez/react-router";
 const Header: React.FC = () => {
   return (
@@ -11,19 +12,23 @@ const Header: React.FC = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/home"> {trans("home")}</Link>
+            <Link to="/home"> 
+            {trans("home")}
+             </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about">  {trans("about")}</Link>
           </li>
           <li>
-            <Link to="/singlePosts/:id">Posts</Link>
+            <Link to="/singlePosts/:id">  {trans("posts")}</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact">
+           { trans("contactUs")}
+            </Link>
           </li>
           <li>
-            <Link to="/policy-Privacy">Privacy and policy</Link>
+            <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
           <button>AR</button>
         </ul>
