@@ -1,9 +1,17 @@
 import React from "react";
 import styles from "./style.module.scss";
-import { trans } from "@mongez/localization";
+import { setLocalizationConfigurations, trans } from "@mongez/localization";
 import "../../../config/localization"
-import { Link } from "@mongez/react-router";
+import { Link, changeLocaleCode } from "@mongez/react-router";
+import { current } from "@mongez/react";
+
+
 const Header: React.FC = () => {
+
+  const changeLang = () => {
+    const localeCode = current("localeCode" ) === "en" ? "ar" : "en";
+    changeLocaleCode(localeCode);
+  }
   return (
   
     <div className={styles.header}>
@@ -30,7 +38,7 @@ const Header: React.FC = () => {
           <li>
             <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
-          <button>AR</button>
+          <button onClick={changeLang}>AR</button>
         </ul>
       </nav>
     </div>

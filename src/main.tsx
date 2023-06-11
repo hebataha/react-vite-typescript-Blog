@@ -1,4 +1,5 @@
-import router from "@mongez/react-router";
 import "./routes";
+import startApplication  from "@mongez/react";
+import "./config"
 
-router.scan();
+startApplication()

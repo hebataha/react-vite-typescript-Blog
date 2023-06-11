@@ -28,7 +28,8 @@ const SinglePost: React.FC = ({ params }) => {
             </div>
             <div className={styles.postBody}>
               <div className={styles.postTitle}>
-                <h3>LIFESTYLE</h3>
+                
+                <h3>LIFESTYLE #{userId}</h3>
               </div>
               <div className={styles.postHeadLine}>
                 <h3>Best Template Website For HTML CSS</h3>
