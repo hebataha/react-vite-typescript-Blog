@@ -5,6 +5,7 @@ import Tags from "./components/Tags/Tags";
 import Posts from "./components/Posts/Posts";
 import Helmet from "@mongez/react-helmet";
 import InputSearch from "./components/InputSearch/InputSearch";
+import Api from "./components/Api";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <RecentPosts />
           <Catagories />
           <Tags />
+          <Api/>
         </div>
       </div>
     </>
