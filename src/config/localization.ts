@@ -40,8 +40,8 @@ const translations: TranslationsList = {
   },
 };
 
-// extend("en",translations.en)
-// extend("ar",translations.ar)
+extend("en",translations.en)
+extend("ar",translations.ar)
 
 
 groupedTranslations({
@@ -53,3 +53,16 @@ groupedTranslations({
     en:"About",
   }
 })
+
+
+
+// groupedTranslations({
+//   home:{
+//     en:" Home",
+//     ar:"صفحة رئيسية"
+//   },
+//   about:{
+//     en:"about",
+//     ar:"عنا",
+//   }
+// })

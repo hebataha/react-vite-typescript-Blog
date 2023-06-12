@@ -3,6 +3,7 @@ import { setRouterConfigurations } from "@mongez/react-router";
 
 setAppConfigurations({
     localization: {
+      defaultLocaleCode: "ar",
       locales: {
         en: {
           direction: "ltr",

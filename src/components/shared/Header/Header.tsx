@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./style.module.scss";
 import { setLocalizationConfigurations, trans } from "@mongez/localization";
 import "../../../config/localization"
@@ -7,10 +7,13 @@ import { current } from "@mongez/react";
 
 
 const Header: React.FC = () => {
-
+const [lang, setLang] = useState(true)
   const changeLang = () => {
     const localeCode = current("localeCode" ) === "en" ? "ar" : "en";
     changeLocaleCode(localeCode);
+    setLang((prevState)=> !prevState)
+
+    
   }
   return (
   
@@ -38,10 +41,11 @@ const Header: React.FC = () => {
           <li>
             <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
-          <button onClick={changeLang}>AR</button>
+          <button onClick={changeLang}>{lang ? "en" : "ar"}</button>
         </ul>
       </nav>
     </div>
   );
 };
+
 export default Header;
