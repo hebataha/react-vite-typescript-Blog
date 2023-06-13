@@ -6,12 +6,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTag, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import ViewAllPostsBtn from "../ViewAllPostsButton/ViewAllPostsBtn";
 import { trans } from "@mongez/localization";
-import "../../config/localization"
+import "../../config/localization";
 import { Link } from "@mongez/react-router";
 
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
-  
   return (
     <>
       <div className="container">
@@ -34,7 +33,9 @@ const Posts: React.FC = () => {
                   <span>|</span>
                   <span className={styles.date}>May 31, 2020</span>
                   <span>|</span>
-                  <span className={styles.comments}>12 {trans("comments")}</span>
+                  <span className={styles.comments}>
+                    12 {trans("comments")}
+                  </span>
                 </div>
                 <div className={styles.postDescription}>
                   <p>
@@ -80,7 +81,9 @@ const Posts: React.FC = () => {
                   <span>|</span>
                   <span className={styles.date}>May 31, 2020</span>
                   <span>|</span>
-                  <span className={styles.comments}>12 {trans("comments")}</span>
+                  <span className={styles.comments}>
+                    12 {trans("comments")}
+                  </span>
                 </div>
                 <div className={styles.postDescription}>
                   <p>
@@ -107,8 +110,8 @@ const Posts: React.FC = () => {
               </Link>
             </div>
           </div>
-{/*  */}
-<div className={styles.SinglePost}>
+          {/*  */}
+          <div className={styles.SinglePost}>
             <div className={styles.postImage}>
               <img src={imgPost} />
             </div>
@@ -126,7 +129,9 @@ const Posts: React.FC = () => {
                   <span>|</span>
                   <span className={styles.date}>May 31, 2020</span>
                   <span>|</span>
-                  <span className={styles.comments}>12 {trans("comments")}</span>
+                  <span className={styles.comments}>
+                    12 {trans("comments")}
+                  </span>
                 </div>
                 <div className={styles.postDescription}>
                   <p>
@@ -158,6 +163,7 @@ const Posts: React.FC = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };
