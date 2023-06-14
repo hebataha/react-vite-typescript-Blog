@@ -10,6 +10,7 @@ import "../../config/localization";
 import { Link } from "@mongez/react-router";
 import { getPosts } from "../../config/services/posts-service";
 import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 // then - catch - final
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
@@ -21,7 +22,7 @@ const Posts: React.FC = () => {
     try {
       getPosts().then((response) => {
         setLoading(true)
-        setPosts(response.data.posts.slice(0, 3));
+        setPosts(response.data.posts.slice(0, 2));
         setLoading(false)
       });
     } catch {
@@ -38,11 +39,11 @@ const Posts: React.FC = () => {
         <div className={styles.flexPost}>
 
           {loading && <Loading/>}
-          {error && <h1 className="error">{error}</h1>}
+          {error && <Error error />}
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
             {posts.map((post, id) => (
-              <>
+              <div key={id}>
                 <div className={styles.postImage}>
                   <img src={"https://source.unsplash.com/random/800x800/?img="+id} />
                 </div>
@@ -72,7 +73,7 @@ const Posts: React.FC = () => {
                     <div className={styles.postFooter}>
                       <div className={styles.label}>
                         <FontAwesomeIcon icon="tag" />
-                        {post.tags.map((singleTag)=> <span>{singleTag} , </span> )}
+                        {post.tags.map((singleTag , id)=> <div key={id}><span>{singleTag} , </span></div> )}
                         {/* <span> Beauty, </span>
                         <span>Nature</span> */}
                       </div>
@@ -84,7 +85,7 @@ const Posts: React.FC = () => {
                     </div>
                   </Link>
                 </div>
-              </>
+              </div>
             ))}
           </div>
 
