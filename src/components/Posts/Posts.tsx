@@ -9,165 +9,87 @@ import { trans } from "@mongez/localization";
 import "../../config/localization";
 import { Link } from "@mongez/react-router";
 import { getPosts } from "../../config/services/posts-service";
+import Loading from "../Loading/Loading";
 // then - catch - final
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState([]);
+  const [error, setError] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    getPosts().then((response) => {
-      setPosts(response.data.posts)
-    });
+    try {
+      getPosts().then((response) => {
+        setLoading(true)
+        setPosts(response.data.posts.slice(0, 3));
+        setLoading(false)
+      });
+    } catch {
+      (error) => {
+        setError(error.message);
+        setLoading(false)
+        console.log("here ",error.message)
+      };
+    }
   }, []);
-  console.log(posts);
   return (
     <>
       <div className="container">
         <div className={styles.flexPost}>
-          <div className={styles.SinglePost}>
-            <div className={styles.postImage}>
-              <img src={imgPost} />
-            </div>
-            <div className={styles.postBody}>
-              <Link to="/singlePosts/1">
-                <div className={styles.postTitle}>
-                  <h3>LIFESTYLE 1</h3>
-                </div>
-                <div className={styles.postHeadLine}>
-                  <h3>Best Template Website For HTML CSS</h3>
-                </div>
 
-                <div className={styles.postInfo}>
-                  <span className={styles.auther}>{trans("admin")} </span>
-                  <span>|</span>
-                  <span className={styles.date}>May 31, 2020</span>
-                  <span>|</span>
-                  <span className={styles.comments}>
-                    12 {trans("comments")}
-                  </span>
+          {loading && <Loading/>}
+          {error && <h1 className="error">{error}</h1>}
+          {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
+          <div className={styles.SinglePost}>
+            {posts.map((post, id) => (
+              <>
+                <div className={styles.postImage}>
+                  <img src={"https://source.unsplash.com/random/800x800/?img="+id} />
                 </div>
-                <div className={styles.postDescription}>
-                  <p>
-                    Stand Blog is a free HTML CSS template for your CMS theme.
-                    You can easily adapt or customize it for any kind of CMS or
-                    website builder. You are allowed to use it for your
-                    business. You are NOT allowed to re-distribute the template
-                    ZIP file on any template collection site for the download
-                    purpose. Contact TemplateMo for more info. Thank you.
-                  </p>
+                <div className={styles.postBody}>
+                  <Link to="/singlePosts/1">
+                    <div className={styles.postTitle}>
+                      <h3>{post.title}</h3>
+                    </div>
+                    <div className={styles.postHeadLine}>
+                      <h3>Best Template Website For HTML CSS</h3>
+                    </div>
+
+                    <div className={styles.postInfo}>
+                      <span className={styles.auther}>{trans("admin")} </span>
+                      <span>|</span>
+                      <span className={styles.date}>May 31, 2020</span>
+                      <span>|</span>
+                      <span className={styles.comments}>
+                        12 {trans("comments")}
+                      </span>
+                    </div>
+                    <div className={styles.postDescription}>
+                      <p>
+                     {post.body}
+                      </p>
+                    </div>
+                    <div className={styles.postFooter}>
+                      <div className={styles.label}>
+                        <FontAwesomeIcon icon="tag" />
+                        {post.tags.map((singleTag)=> <span>{singleTag} , </span> )}
+                        {/* <span> Beauty, </span>
+                        <span>Nature</span> */}
+                      </div>
+                      <div className={styles.share}>
+                        <FontAwesomeIcon icon="share-nodes" />
+                        <span> {trans("facebook")}, </span>
+                        <span>{trans("twitter")}</span>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-                <div className={styles.postFooter}>
-                  <div className={styles.label}>
-                    <FontAwesomeIcon icon="tag" />
-                    <span> Beauty, </span>
-                    <span>Nature</span>
-                  </div>
-                  <div className={styles.share}>
-                    <FontAwesomeIcon icon="share-nodes" />
-                    <span> {trans("facebook")}, </span>
-                    <span>{trans("twitter")}</span>
-                  </div>
-                </div>
-              </Link>
-            </div>
+              </>
+            ))}
           </div>
 
-          <div className={styles.SinglePost}>
-            <div className={styles.postImage}>
-              <img src={imgPost} />
-            </div>
-            <div className={styles.postBody}>
-              <Link to="/singlePosts/1">
-                <div className={styles.postTitle}>
-                  <h3>LIFESTYLE 2</h3>
-                </div>
-                <div className={styles.postHeadLine}>
-                  <h3>Best Template Website For HTML CSS</h3>
-                </div>
-
-                <div className={styles.postInfo}>
-                  <span className={styles.auther}>{trans("admin")} </span>
-                  <span>|</span>
-                  <span className={styles.date}>May 31, 2020</span>
-                  <span>|</span>
-                  <span className={styles.comments}>
-                    12 {trans("comments")}
-                  </span>
-                </div>
-                <div className={styles.postDescription}>
-                  <p>
-                    Stand Blog is a free HTML CSS template for your CMS theme.
-                    You can easily adapt or customize it for any kind of CMS or
-                    website builder. You are allowed to use it for your
-                    business. You are NOT allowed to re-distribute the template
-                    ZIP file on any template collection site for the download
-                    purpose. Contact TemplateMo for more info. Thank you.
-                  </p>
-                </div>
-                <div className={styles.postFooter}>
-                  <div className={styles.label}>
-                    <FontAwesomeIcon icon="tag" />
-                    <span> Beauty, </span>
-                    <span>Nature</span>
-                  </div>
-                  <div className={styles.share}>
-                    <FontAwesomeIcon icon="share-nodes" />
-                    <span> {trans("facebook")}, </span>
-                    <span>{trans("twitter")}</span>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-          {/*  */}
-          <div className={styles.SinglePost}>
-            <div className={styles.postImage}>
-              <img src={imgPost} />
-            </div>
-            <div className={styles.postBody}>
-              <Link to="/singlePosts/1">
-                <div className={styles.postTitle}>
-                  <h3>LIFESTYLE 3</h3>
-                </div>
-                <div className={styles.postHeadLine}>
-                  <h3>Best Template Website For HTML CSS</h3>
-                </div>
-
-                <div className={styles.postInfo}>
-                  <span className={styles.auther}>{trans("admin")} </span>
-                  <span>|</span>
-                  <span className={styles.date}>May 31, 2020</span>
-                  <span>|</span>
-                  <span className={styles.comments}>
-                    12 {trans("comments")}
-                  </span>
-                </div>
-                <div className={styles.postDescription}>
-                  <p>
-                    Stand Blog is a free HTML CSS template for your CMS theme.
-                    You can easily adapt or customize it for any kind of CMS or
-                    website builder. You are allowed to use it for your
-                    business. You are NOT allowed to re-distribute the template
-                    ZIP file on any template collection site for the download
-                    purpose. Contact TemplateMo for more info. Thank you.
-                  </p>
-                </div>
-                <div className={styles.postFooter}>
-                  <div className={styles.label}>
-                    <FontAwesomeIcon icon="tag" />
-                    <span> Beauty, </span>
-                    <span>Nature</span>
-                  </div>
-                  <div className={styles.share}>
-                    <FontAwesomeIcon icon="share-nodes" />
-                    <span> {trans("facebook")}, </span>
-                    <span>{trans("twitter")}</span>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
           <div className={styles.padding}>
-            <ViewAllPostsBtn />
+           { posts.length > 0 && <ViewAllPostsBtn />}
           </div>
         </div>
       </div>

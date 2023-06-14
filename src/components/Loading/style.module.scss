@@ -1,0 +1,65 @@
+$main-color: #3DAAE5;
+.wrap{
+
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.loader {
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  position: relative;
+  display: inline-block;
+  background: transparent;
+}
+
+.loader_2 {
+  background: transparent;
+
+  span {
+    background: $main-color;
+    display: inline-block;
+    margin: 2.5px;
+    position: absolute;
+    top: 7.5px;
+    left: 0;
+    height: 80px;
+    width: 15px;
+
+    &:nth-child(1) {
+      animation: fade 1s ease-in-out infinite;
+    }
+    &:nth-child(2) {
+      left: 20%;
+      animation: fade 1s ease-in-out .2s infinite;
+    }
+    &:nth-child(3) {
+      left: 40%;
+      animation: fade 1s ease-in-out .4s infinite;
+    }
+    &:nth-child(4) {
+      left: 60%;
+      animation: fade 1s ease-in-out .6s infinite;
+    }
+    &:nth-child(5) {
+      left: 80%;
+      animation: fade 1s ease-in-out .8s infinite;
+    }
+  }
+}
+
+
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+}
