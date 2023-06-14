@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import imgPost from "../../assets/blog-post-02.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,9 +8,17 @@ import ViewAllPostsBtn from "../ViewAllPostsButton/ViewAllPostsBtn";
 import { trans } from "@mongez/localization";
 import "../../config/localization";
 import { Link } from "@mongez/react-router";
-
+import { getPosts } from "../../config/services/posts-service";
+// then - catch - final
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    getPosts().then((response) => {
+      setPosts(response.data.posts)
+    });
+  }, []);
+  console.log(posts);
   return (
     <>
       <div className="container">
@@ -163,7 +171,6 @@ const Posts: React.FC = () => {
           </div>
         </div>
       </div>
-
     </>
   );
 };
