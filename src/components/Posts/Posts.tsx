@@ -21,15 +21,15 @@ const Posts: React.FC = () => {
   useEffect(() => {
     try {
       getPosts().then((response) => {
-        setLoading(true)
-        setPosts(response.data.posts.slice(0, 2));
-        setLoading(false)
+        setLoading(true);
+        setPosts(response.data.posts.slice(0, 10));
+        setLoading(false);
       });
     } catch {
       (error) => {
+        setLoading(false);
         setError(error.message);
-        setLoading(false)
-        console.log("here ",error.message)
+        console.log("here ", error.message);
       };
     }
   }, []);
@@ -37,15 +37,18 @@ const Posts: React.FC = () => {
     <>
       <div className="container">
         <div className={styles.flexPost}>
-
-          {loading && <Loading/>}
+          {loading && <Loading />}
           {error && <Error error />}
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
             {posts.map((post, id) => (
               <div key={id}>
                 <div className={styles.postImage}>
-                  <img src={"https://source.unsplash.com/random/800x800/?img="+id} />
+                  <img
+                    src={
+                      "https://source.unsplash.com/random/800x800/?img=" + id
+                    }
+                  />
                 </div>
                 <div className={styles.postBody}>
                   <Link to="/singlePosts/1">
@@ -66,14 +69,16 @@ const Posts: React.FC = () => {
                       </span>
                     </div>
                     <div className={styles.postDescription}>
-                      <p>
-                     {post.body}
-                      </p>
+                      <p>{post.body}</p>
                     </div>
                     <div className={styles.postFooter}>
                       <div className={styles.label}>
                         <FontAwesomeIcon icon="tag" />
-                        {post.tags.map((singleTag , id)=> <div key={id}><span>{singleTag} , </span></div> )}
+                        {post.tags.map((singleTag, id) => (
+                          <div key={id}>
+                            <span>{singleTag} , </span>
+                          </div>
+                        ))}
                         {/* <span> Beauty, </span>
                         <span>Nature</span> */}
                       </div>
@@ -90,7 +95,7 @@ const Posts: React.FC = () => {
           </div>
 
           <div className={styles.padding}>
-           { posts.length > 0 && <ViewAllPostsBtn />}
+            {posts.length > 0 && <ViewAllPostsBtn />}
           </div>
         </div>
       </div>
