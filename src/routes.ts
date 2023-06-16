@@ -14,7 +14,8 @@ import SinglePost from "./components/SinglePost/SinglePost";
 // router.add("/contact", Contact);
 // router.add("/policy-Privacy", PolicyAndPrivacy);
 
-router.partOf(BaseLayout, [
+router.partOf(
+  BaseLayout, [
   {
     path: "/",
     component: HomePage,

@@ -1,58 +1,50 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./style.module.scss";
 import { setLocalizationConfigurations, trans } from "@mongez/localization";
-import "../../../config/localization"
+import "../../../config/localization";
 import { Link, changeLocaleCode } from "@mongez/react-router";
 import { current } from "@mongez/react";
 import Dropdown from "../../Dropdown/Dropdown";
+import DropdownContext from "../../Store/AuthContext/DropdownContext";
 
-
-const Header: React.FC = ({getPara}) => {
-const [lang, setLang] = useState(true)
-const [dataChild , setDataChild] = useState("");
+const Header: React.FC = ({ getPara }) => {
+  const [lang, setLang] = useState(true);
+  const [dataChild, setDataChild] = useState("");
   const changeLang = () => {
-    const localeCode = current("localeCode" ) === "en" ? "ar" : "en";
+    const localeCode = current("localeCode") === "en" ? "ar" : "en";
     changeLocaleCode(localeCode);
-    setLang((prevState)=> !prevState)
-
-    
-  }
-  const  valueDrop =  (para) =>{
-    setDataChild(para)
+    setLang((prevState) => !prevState);
+  };
+  const valueDrop = (para) => {
+    setDataChild(para);
     // console.log(dataChild)
-  }
-  
+  };
 
-  
-  
+  const ctx = useContext(DropdownContext);
+
+  {console.log(ctx.isIn)}
   return (
-  
     <div className={styles.header}>
-       
       <div className={styles.logo}>LOGO</div>
       <nav>
         <ul>
           <li>
-            <Link to="/home"> 
-            {trans("home")}
-             </Link>
+            <Link to="/home">{trans("home")}</Link>
           </li>
           <li>
-            <Link to="/about">  {trans("about")}</Link>
+            <Link to="/about"> {trans("about")}</Link>
           </li>
           <li>
-            <Link to="/singlePosts/:id">  {trans("posts")}</Link>
+            <Link to="/singlePosts/:id"> {trans("posts")}</Link>
           </li>
           <li>
-            <Link to="/contact">
-           { trans("contactUs")}
-            </Link>
+            <Link to="/contact">{trans("contactUs")}</Link>
           </li>
           <li>
-            <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
+            <Link to="/policy-Privacy"> {trans("PrivacyPolicy")}</Link>
           </li>
-          
-          <Dropdown valueDrop={valueDrop}/>
+
+          <Dropdown valueDrop={valueDrop} />
           <button onClick={changeLang}>{lang ? "en" : "ar"}</button>
         </ul>
       </nav>
