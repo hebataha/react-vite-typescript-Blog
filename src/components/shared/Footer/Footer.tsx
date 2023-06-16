@@ -3,6 +3,7 @@ import { trans } from "@mongez/localization";
 import "../../../config/localization"
 import styles from "./style.module.scss";
 import { Link } from "@mongez/react-router";
+import Dropdown from "../../Dropdown/Dropdown";
 
 const Footer: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const Footer: React.FC = () => {
           <li>
             <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
+          <Dropdown/>
       </ul>
     </div>
   );
