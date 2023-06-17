@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import RecentPosts from "./components/RecentPosts/RecentPosts";
 import Catagories from "./components/Catagories/Catagories";
 import Tags from "./components/Tags/Tags";
