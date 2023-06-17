@@ -15,17 +15,15 @@ const Header: React.FC = ({ getPara }) => {
     changeLocaleCode(localeCode);
     setLang((prevState) => !prevState);
   };
-  const valueDrop = (para) => {
+  const valueDrop = (para:any) => {
     setDataChild(para);
     // console.log(dataChild)
   };
 
-  const ctx = useContext(DropdownContext);
 
-  {console.log(ctx.isIn)}
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>LOGO</div>
+      <div className={styles.logo}>LOGO </div>
       <nav>
         <ul>
           <li>

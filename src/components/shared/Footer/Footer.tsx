@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { trans } from "@mongez/localization";
 import "../../../config/localization"
 import styles from "./style.module.scss";
 import { Link } from "@mongez/react-router";
 import Dropdown from "../../Dropdown/Dropdown";
+import { ContextDropdown } from "../../../Store/context/ContextDropdown/ContextDropdown";
 
 const Footer: React.FC = () => {
+  const ctx = useContext(ContextDropdown)
   return (
     <div className={styles.footer}>
       <ul className="container">
-        <div className={styles.logo}>LOGO</div>
+        <div className={styles.logo}>{ctx.inputValue}</div>
         
           <li>
             <Link to="/home"> 
