@@ -42,7 +42,8 @@ const Posts: React.FC = () => {
       <div className="container">
         <div className={styles.flexPost}>
           {loading && <Loading />}
-          {error && <Error error={error} />}
+          {error.length > 0  && <Error  error={error} />}
+         
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
             {/* {error.length} */}

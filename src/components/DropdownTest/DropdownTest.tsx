@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { ContextDropdown } from "../../Store/context/ContextDropdown/ContextDropdown";
 
-export default function DropdownTest({  getDropValue,ctxValue}) {
+export default function DropdownTest({  getDropValue,ctxValue ,getProps}) {
 
-
+function reciveData(){
+  getProps(ctxValue)
+}
   return (
     <>
    

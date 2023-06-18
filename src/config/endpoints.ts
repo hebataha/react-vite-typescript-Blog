@@ -2,7 +2,7 @@
 import Endpoint from "@mongez/http";
 
 export const endpoint = new Endpoint({
-  baseURL: "https://dummyljljljson.com",
+  baseURL: "https://dummyjson.com",
 });
 
 

@@ -9,12 +9,18 @@ import DropdownTest from "../../DropdownTest/DropdownTest";
 
 const Footer: React.FC = () => {
   const [selectValue, setSelectValue]= useState("")
+  const [data, setData]= useState("")
   const ctx = useContext(ContextDropdown)
 
   function getDropValue(e) {
     // setSelectValue(e.target.value);
      ctx.setInputValue(e.target.value)
     
+  }
+
+  function getProps(data){
+    setData(data)
+    console.log("dataaaaaaaa" , setData)
   }
   return (
     <div className={styles.footer}>
@@ -40,7 +46,7 @@ const Footer: React.FC = () => {
           <li>
             <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
-      <DropdownTest getDropValue={getDropValue} ctxValue={ctx.inputValue}/>
+      <DropdownTest getDropValue={getDropValue} ctxValue={ctx.inputValue} getProps={getProps}/>
       </ul>
     </div>
   );
