@@ -6,6 +6,7 @@ import { Link, changeLocaleCode } from "@mongez/react-router";
 import { current } from "@mongez/react";
 import Dropdown from "../../Dropdown/Dropdown";
 import DropdownContext from "../../Store/AuthContext/DropdownContext";
+import DropdownTest from "../../DropdownTest/DropdownTest";
 
 const Header: React.FC = ({ getPara }) => {
   const [lang, setLang] = useState(true);
@@ -42,7 +43,7 @@ const Header: React.FC = ({ getPara }) => {
             <Link to="/policy-Privacy"> {trans("PrivacyPolicy")}</Link>
           </li>
 
-          <Dropdown valueDrop={valueDrop} />
+          <DropdownTest/>
           <button onClick={changeLang}>{lang ? "en" : "ar"}</button>
         </ul>
       </nav>

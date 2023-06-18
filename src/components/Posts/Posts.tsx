@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import imgPost from "../../assets/blog-post-02.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,18 +11,19 @@ import { Link } from "@mongez/react-router";
 import { getPosts } from "../../config/services/posts-service";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
+import { ContextDropdown } from "../../Store/context/ContextDropdown/ContextDropdown";
 // then - catch - final
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const ctx = useContext(ContextDropdown)
   useEffect(() => {
     try {
       getPosts().then((response) => {
         setLoading(true);
-        setPosts(response.data.posts.slice(0, 10));
+        setPosts(response.data.posts.slice(0, 2));
         setLoading(false);
       });
     } catch {
@@ -41,6 +42,7 @@ const Posts: React.FC = () => {
           {error && <Error error />}
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
+            {ctx.inputValue}
             {posts.map((post, id) => (
               <div key={id}>
                 <div className={styles.postImage}>

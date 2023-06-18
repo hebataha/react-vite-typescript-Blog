@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import { Link } from "@mongez/react-router";
 import Dropdown from "../../Dropdown/Dropdown";
 import { ContextDropdown } from "../../../Store/context/ContextDropdown/ContextDropdown";
+import DropdownTest from "../../DropdownTest/DropdownTest";
 
 const Footer: React.FC = () => {
   const ctx = useContext(ContextDropdown)
@@ -32,7 +33,7 @@ const Footer: React.FC = () => {
           <li>
             <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
-          <Dropdown/>
+      <DropdownTest/>
       </ul>
     </div>
   );
