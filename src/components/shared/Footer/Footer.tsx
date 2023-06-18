@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { trans } from "@mongez/localization";
 import "../../../config/localization"
 import styles from "./style.module.scss";
@@ -8,11 +8,18 @@ import { ContextDropdown } from "../../../Store/context/ContextDropdown/ContextD
 import DropdownTest from "../../DropdownTest/DropdownTest";
 
 const Footer: React.FC = () => {
+  const [selectValue, setSelectValue]= useState("")
   const ctx = useContext(ContextDropdown)
+
+  function getDropValue(e) {
+    // setSelectValue(e.target.value);
+     ctx.setInputValue(e.target.value)
+    
+  }
   return (
     <div className={styles.footer}>
       <ul className="container">
-        <div className={styles.logo}>{ctx.inputValue}</div>
+        <div className={styles.logo}></div>
         
           <li>
             <Link to="/home"> 
@@ -33,7 +40,7 @@ const Footer: React.FC = () => {
           <li>
             <Link to="/policy-Privacy">  {trans("PrivacyPolicy")}</Link>
           </li>
-      <DropdownTest/>
+      <DropdownTest getDropValue={getDropValue} ctxValue={ctx.inputValue}/>
       </ul>
     </div>
   );

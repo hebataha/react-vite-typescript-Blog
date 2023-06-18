@@ -4,24 +4,26 @@ import { setLocalizationConfigurations, trans } from "@mongez/localization";
 import "../../../config/localization";
 import { Link, changeLocaleCode } from "@mongez/react-router";
 import { current } from "@mongez/react";
-import Dropdown from "../../Dropdown/Dropdown";
-import DropdownContext from "../../Store/AuthContext/DropdownContext";
 import DropdownTest from "../../DropdownTest/DropdownTest";
+import { ContextDropdown } from "../../../Store/context/ContextDropdown/ContextDropdown";
 
 const Header: React.FC = ({ getPara }) => {
   const [lang, setLang] = useState(true);
-  const [dataChild, setDataChild] = useState("");
+  const [selectValue, setSelectValue]= useState("")
+  const ctx = useContext(ContextDropdown)
+
   const changeLang = () => {
     const localeCode = current("localeCode") === "en" ? "ar" : "en";
     changeLocaleCode(localeCode);
     setLang((prevState) => !prevState);
   };
-  const valueDrop = (para:any) => {
-    setDataChild(para);
-    // console.log(dataChild)
-  };
 
 
+  function getDropValue(e) {
+    // setSelectValue(e.target.value);
+     ctx.setInputValue(e.target.value)
+    
+  }
   return (
     <div className={styles.header}>
       <div className={styles.logo}>LOGO </div>
@@ -43,7 +45,7 @@ const Header: React.FC = ({ getPara }) => {
             <Link to="/policy-Privacy"> {trans("PrivacyPolicy")}</Link>
           </li>
 
-          <DropdownTest/>
+          <DropdownTest getDropValue={getDropValue}/>
           <button onClick={changeLang}>{lang ? "en" : "ar"}</button>
         </ul>
       </nav>

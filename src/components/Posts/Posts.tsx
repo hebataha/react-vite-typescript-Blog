@@ -12,6 +12,7 @@ import { getPosts } from "../../config/services/posts-service";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import { ContextDropdown } from "../../Store/context/ContextDropdown/ContextDropdown";
+import DropdownTest from "../DropdownTest/DropdownTest";
 // then - catch - final
 library.add(faTag, faShareNodes);
 const Posts: React.FC = () => {
@@ -34,6 +35,11 @@ const Posts: React.FC = () => {
       };
     }
   }, []);
+
+  function getDropValue() {
+
+    
+  }
   return (
     <>
       <div className="container">
@@ -42,7 +48,7 @@ const Posts: React.FC = () => {
           {error && <Error error />}
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
-            {ctx.inputValue}
+            <DropdownTest getDropValue={getDropValue}/>
             {posts.map((post, id) => (
               <div key={id}>
                 <div className={styles.postImage}>
