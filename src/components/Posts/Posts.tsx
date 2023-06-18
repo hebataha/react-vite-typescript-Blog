@@ -19,87 +19,93 @@ const Posts: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState([]);
   const [loading, setLoading] = useState(true);
-  const ctx = useContext(ContextDropdown)
+  const ctx = useContext(ContextDropdown);
   useEffect(() => {
-    try {
-      getPosts().then((response) => {
+    getPosts()
+      .then((response) => {
         setLoading(true);
         setPosts(response.data.posts.slice(0, 2));
         setLoading(false);
-      });
-    } catch {
-      (error) => {
+      })
+      .catch((error) => {
         setLoading(false);
         setError(error.message);
         console.log("here ", error.message);
-      };
-    }
+      });
   }, []);
 
   function getDropValue() {
-
-    
+    console.log("hi");
   }
   return (
     <>
       <div className="container">
         <div className={styles.flexPost}>
           {loading && <Loading />}
-          {error && <Error error />}
+          {error && <Error error={error} />}
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
-            <DropdownTest getDropValue={getDropValue}/>
-            {posts.map((post, id) => (
-              <div key={id}>
-                <div className={styles.postImage}>
-                  <img
-                    src={
-                      "https://source.unsplash.com/random/800x800/?img=" + id
-                    }
-                  />
-                </div>
-                <div className={styles.postBody}>
-                  <Link to="/singlePosts/1">
-                    <div className={styles.postTitle}>
-                      <h3>{post.title}</h3>
-                    </div>
-                    <div className={styles.postHeadLine}>
-                      <h3>Best Template Website For HTML CSS</h3>
-                    </div>
+            {/* {error.length} */}
 
-                    <div className={styles.postInfo}>
-                      <span className={styles.auther}>{trans("admin")} </span>
-                      <span>|</span>
-                      <span className={styles.date}>May 31, 2020</span>
-                      <span>|</span>
-                      <span className={styles.comments}>
-                        12 {trans("comments")}
-                      </span>
+            {posts.length > 0 && (
+              <>
+                <DropdownTest getDropValue={getDropValue} />
+                {posts.map((post, id) => (
+                  <div key={id}>
+                    <div className={styles.postImage}>
+                      <img
+                        src={
+                          "https://source.unsplash.com/random/800x800/?img=" +
+                          id
+                        }
+                      />
                     </div>
-                    <div className={styles.postDescription}>
-                      <p>{post.body}</p>
-                    </div>
-                    <div className={styles.postFooter}>
-                      <div className={styles.label}>
-                        <FontAwesomeIcon icon="tag" />
-                        {post.tags.map((singleTag, id) => (
-                          <div key={id}>
-                            <span>{singleTag} , </span>
-                          </div>
-                        ))}
-                        {/* <span> Beauty, </span>
+                    <div className={styles.postBody}>
+                      <Link to="/singlePosts/1">
+                        <div className={styles.postTitle}>
+                          <h3>{post.title}</h3>
+                        </div>
+                        <div className={styles.postHeadLine}>
+                          <h3>Best Template Website For HTML CSS</h3>
+                        </div>
+
+                        <div className={styles.postInfo}>
+                          <span className={styles.auther}>
+                            {trans("admin")}{" "}
+                          </span>
+                          <span>|</span>
+                          <span className={styles.date}>May 31, 2020</span>
+                          <span>|</span>
+                          <span className={styles.comments}>
+                            12 {trans("comments")}
+                          </span>
+                        </div>
+                        <div className={styles.postDescription}>
+                          <p>{post.body}</p>
+                        </div>
+                        <div className={styles.postFooter}>
+                          <div className={styles.label}>
+                            <FontAwesomeIcon icon="tag" />
+                            {post.tags.map((singleTag, id) => (
+                              <div key={id}>
+                                <span>{singleTag} , </span>
+                              </div>
+                            ))}
+                            {/* <span> Beauty, </span>
                         <span>Nature</span> */}
-                      </div>
-                      <div className={styles.share}>
-                        <FontAwesomeIcon icon="share-nodes" />
-                        <span> {trans("facebook")}, </span>
-                        <span>{trans("twitter")}</span>
-                      </div>
+                          </div>
+                          <div className={styles.share}>
+                            <FontAwesomeIcon icon="share-nodes" />
+                            <span> {trans("facebook")}, </span>
+                            <span>{trans("twitter")}</span>
+                          </div>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
-                </div>
-              </div>
-            ))}
+                  </div>
+                ))}
+              </>
+            )}
           </div>
 
           <div className={styles.padding}>
