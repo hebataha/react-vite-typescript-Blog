@@ -5,9 +5,15 @@ import Tags from "./components/Tags/Tags";
 import Posts from "./components/Posts/Posts";
 import Helmet from "@mongez/react-helmet";
 import InputSearch from "./components/InputSearch/InputSearch";
+import { toggleButtons } from "./Atom/ToggleButton";
 // import Api from "./components/Api";
 
 export default function App() {
+  const toggle = toggleButtons.use();
+
+  console.log(toggle);
+
+  // console.log(toggleB.displaySidebar.update("heba"))
   return (
     <>
       <Helmet
@@ -20,13 +26,16 @@ export default function App() {
         <div className="flex-1">
           <Posts />
         </div>
-        <div className="flex-2">
-          <InputSearch />
-          <RecentPosts />
-          <Catagories />
-          <Tags />
-          {/* <Api/> */}
-        </div>
+        {/* <h1>{toggleSlide}</h1> */}
+        {toggle.displaySidebar && (
+          <div className="flex-2">
+            <InputSearch />
+            <RecentPosts />
+            <Catagories />
+            <Tags />
+            {/* <Api/> */}
+          </div>
+        )}
       </div>
     </>
   );

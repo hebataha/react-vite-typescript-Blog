@@ -13,13 +13,17 @@ import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import { ContextDropdown } from "../../Store/context/ContextDropdown/ContextDropdown";
 import DropdownTest from "../DropdownTest/DropdownTest";
+import { toggleButtons } from "../../Atom/ToggleButton";
 // then - catch - final
 library.add(faTag, faShareNodes);
+
 const Posts: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState([]);
   const [loading, setLoading] = useState(true);
   const ctx = useContext(ContextDropdown);
+  const toggle = toggleButtons.use();
+  console.log(toggle);
   useEffect(() => {
     getPosts()
       .then((response) => {
@@ -42,13 +46,12 @@ const Posts: React.FC = () => {
       <div className="container">
         <div className={styles.flexPost}>
           {loading && <Loading />}
-          {error.length > 0  && <Error  error={error} />}
-         
+          {error.length > 0 && <Error error={error} />}
+
           {posts.length < 0 && <h1> There is No Posts Yet :/ </h1>}
           <div className={styles.SinglePost}>
             {/* {error.length} */}
-
-            {posts.length > 0 && (
+            {toggle.displayPost && posts.length > 0 && (
               <>
                 <DropdownTest getDropValue={getDropValue} />
                 {posts.map((post, id) => (
@@ -110,7 +113,7 @@ const Posts: React.FC = () => {
           </div>
 
           <div className={styles.padding}>
-            {posts.length > 0 && <ViewAllPostsBtn />}
+            {toggle.displayPost && posts.length > 0 && <ViewAllPostsBtn />}
           </div>
         </div>
       </div>

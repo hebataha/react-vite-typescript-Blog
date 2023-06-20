@@ -6,11 +6,14 @@ import { Link, changeLocaleCode } from "@mongez/react-router";
 import { current } from "@mongez/react";
 import DropdownTest from "../../DropdownTest/DropdownTest";
 import { ContextDropdown } from "../../../Store/context/ContextDropdown/ContextDropdown";
+import { currencyAtom } from "../../../Atom/CurrencyAtom/currencyAtom";
 
 const Header: React.FC = ({ getPara }) => {
   const [lang, setLang] = useState(true);
-  const [selectValue, setSelectValue]= useState("")
-  const ctx = useContext(ContextDropdown)
+  const [selectValue, setSelectValue] = useState("");
+  const ctx = useContext(ContextDropdown);
+  // const currency = currencyAtom.use();
+  const [currency, setCurrency] = currencyAtom.useState();
 
   const changeLang = () => {
     const localeCode = current("localeCode") === "en" ? "ar" : "en";
@@ -18,15 +21,14 @@ const Header: React.FC = ({ getPara }) => {
     setLang((prevState) => !prevState);
   };
 
-
   function getDropValue(e) {
     // setSelectValue(e.target.value);
-     ctx.setInputValue(e.target.value)
-    
+    ctx.setInputValue(e.target.value);
   }
+
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>LOGO </div>
+      <div className={styles.logo}></div>
       <nav>
         <ul>
           <li>
@@ -45,7 +47,7 @@ const Header: React.FC = ({ getPara }) => {
             <Link to="/policy-Privacy"> {trans("PrivacyPolicy")}</Link>
           </li>
 
-          <DropdownTest getDropValue={getDropValue}/>
+          <DropdownTest getDropValue={getDropValue} />
           <button onClick={changeLang}>{lang ? "en" : "ar"}</button>
         </ul>
       </nav>
