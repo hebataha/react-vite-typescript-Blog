@@ -34,7 +34,6 @@ const Posts: React.FC = () => {
       .catch((error) => {
         setLoading(false);
         setError(error.message);
-        ("here ", error.message);
       });
   }, []);
 
