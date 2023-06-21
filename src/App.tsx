@@ -11,9 +11,9 @@ import { toggleButtons } from "./Atom/ToggleButton";
 export default function App() {
   const toggle = toggleButtons.use();
 
-  console.log(toggle);
+  (toggle);
 
-  // console.log(toggleB.displaySidebar.update("heba"))
+  // (toggleB.displaySidebar.update("heba"))
   return (
     <>
       <Helmet

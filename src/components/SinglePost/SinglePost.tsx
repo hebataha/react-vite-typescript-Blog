@@ -6,6 +6,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTag, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import ViewAllPostsBtn from "../ViewAllPostsButton/ViewAllPostsBtn";
 import Helmet from "@mongez/react-helmet";
+import { trans } from "@mongez/localization";
 
 library.add(faTag, faShareNodes);
 const SinglePost: React.FC = ({ params }) => {
@@ -59,8 +60,8 @@ const SinglePost: React.FC = ({ params }) => {
                 </div>
                 <div className={styles.share}>
                   <FontAwesomeIcon icon="share-nodes" />
-                  <span> Facebook, </span>
-                  <span>Twitter</span>
+                  <span> {trans("facebook")} </span>
+                  <span>{trans("twitter")}</span>
                 </div>
               </div>
             </div>

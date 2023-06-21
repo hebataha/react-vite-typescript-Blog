@@ -9,17 +9,17 @@ export default function Dropdown({ valueDrop }) {
     
     setValue(e.target.value);
     ctx.setInputValue(e.target.value)
-    console.log(ctx.inputValue)
+    (ctx.inputValue)
 
-    // console.log(e.target.value)
-    // console.log(value)
+    // (e.target.value)
+    // (value)
     // valueDrop(value)
     // setValue(optionValue);
-    // console.log(value);
+    // (value);
   }
   // function optionValueFunction(e) {
   //   setOptionValue(e.target.value);
-  //   console.log(optionValue);
+  //   (optionValue);
   // }
   // function Log() {
   //   valueDrop(value);

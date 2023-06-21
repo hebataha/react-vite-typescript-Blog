@@ -6,7 +6,7 @@ export default function IndexShared() {
 function getPara (paraData){
 return paraData
 }
-console.log(getPara)
+(getPara)
   return (
     <div>
       <Header getPara={getPara}/>

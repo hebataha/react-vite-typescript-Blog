@@ -7,7 +7,7 @@ export default function TopHeader() {
   const [data, setData] = toggleButtons.useState();
   const [valueObject, setValueObject] = useState(true);
 
-  console.log(data);
+  (data);
 
   function updateSlidbar() {
     setValueObject((prevState) => !prevState);
@@ -27,7 +27,7 @@ export default function TopHeader() {
       displayPost: valueObject,
     });
   }
-  // console.log(data)
+  // (data)
   return (
     <>
       <div className={styles.topHeader}>

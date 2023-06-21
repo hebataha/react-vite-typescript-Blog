@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
 
   function getProps(data){
     setData(data)
-    console.log("dataaaaaaaa" , setData)
+    ("dataaaaaaaa" , setData)
   }
   return (
     <div className={styles.footer}>

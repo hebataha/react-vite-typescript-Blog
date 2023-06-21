@@ -2,7 +2,7 @@
 
 // export default function Api() {
 //     useEffect(()=> { 
-//        fetch("https://dummyjson.com/products/").then((response)=>response.json()).then((data)=>console.log(data))
+//        fetch("https://dummyjson.com/products/").then((response)=>response.json()).then((data)=>(data))
 //     } , [])
     
 //   return (

@@ -23,23 +23,23 @@ const Posts: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const ctx = useContext(ContextDropdown);
   const toggle = toggleButtons.use();
-  console.log(toggle);
+  (toggle);
   useEffect(() => {
     getPosts()
       .then((response) => {
         setLoading(true);
-        setPosts(response.data.posts.slice(0, 2));
+        setPosts(response.data.posts.slice(0, 10));
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
         setError(error.message);
-        console.log("here ", error.message);
+        ("here ", error.message);
       });
   }, []);
 
   function getDropValue() {
-    console.log("hi");
+    ("hi");
   }
   return (
     <>
