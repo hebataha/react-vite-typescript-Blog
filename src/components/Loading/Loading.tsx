@@ -1,5 +1,10 @@
 import styles from "./style.module.scss";
-export default function Loading({loading}) {
+
+type Props = {
+  loading: boolean
+};
+
+export default function Loading({loading}:Props) {
 
   if(!loading) return null;
   return (

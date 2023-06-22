@@ -1,10 +1,10 @@
 import styles from "./style.module.scss";
 
-type ErrorProps = {
-  error : "string"
+type Props = {
+  catchError : "string"
 }
 
-export default function Error({ catchError }:ErrorProps) {
+export default function Error({ catchError }:Props) {
   if (!catchError) return null;
   return (
     <>
