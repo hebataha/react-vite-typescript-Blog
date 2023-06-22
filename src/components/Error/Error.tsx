@@ -1,7 +1,7 @@
 import styles from "./style.module.scss";
 
 type Props = {
-  catchError : "string"
+  catchError : string
 }
 
 export default function Error({ catchError }:Props) {
