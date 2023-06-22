@@ -4,12 +4,12 @@ type ErrorProps = {
   error : "string"
 }
 
-export default function Error({ error }:ErrorProps) {
-
+export default function Error({ catchError }:ErrorProps) {
+  if (!catchError) return null;
   return (
     <>
       <h1 className={styles.error}>
-        OOPS! {error}</h1>
+        OOPS! {catchError}</h1>
     </>
   );
 }

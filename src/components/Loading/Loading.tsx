@@ -1,5 +1,7 @@
 import styles from "./style.module.scss";
-export default function Loading() {
+export default function Loading({loading}) {
+
+  if(!loading) return null;
   return (
     <>
   
