@@ -1,6 +1,10 @@
 import { atom, Atom } from "@mongez/react-atom";
 
-export const toggleButtons: Atom<any> = atom({
+type PostAtomType = {
+  displaySidebar: boolean;
+  displayPost:boolean;
+}
+export const postAtom: Atom<PostAtomType> = atom({
   key: "buttons",
   default: {
     displaySidebar: true,

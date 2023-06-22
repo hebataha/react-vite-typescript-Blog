@@ -1,10 +1,15 @@
 import styles from "./style.module.scss";
 
-export default function Error({ error }) {
+type ErrorProps = {
+  error : "string"
+}
+
+export default function Error({ error }:ErrorProps) {
+
   return (
     <>
       <h1 className={styles.error}>
-        OPPS! {error}</h1>
+        OOPS! {error}</h1>
     </>
   );
 }

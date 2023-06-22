@@ -1,37 +1,18 @@
-import React, { useState } from "react";
-import { toggleButtons } from "../../Atom/ToggleButton";
+import { postAtom } from "../../Atom/ToggleButton";
 import styles from "./style.module.scss";
 
 export default function TopHeader() {
-  const toggle = toggleButtons.use();
-  const [data, setData] = toggleButtons.useState();
-  const [valueObject, setValueObject] = useState(true);
-
-  (data);
-
-  function updateSlidbar() {
-    setValueObject((prevState) => !prevState);
-
-    toggleButtons.update({
-      ...data.value,
-      displaySidebar: valueObject,
-      displayPost: true,
-    });
+  function updateSidebar() {
+    postAtom.change("displaySidebar", !postAtom.get("displaySidebar"));
   }
   function updatePost() {
-    setValueObject((prevState) => !prevState);
-
-    toggleButtons.update({
-      ...data.value,
-      displaySidebar: true,
-      displayPost: valueObject,
-    });
+    postAtom.change("displayPost", !postAtom.get("displayPost"));
   }
-  // (data)
+
   return (
     <>
       <div className={styles.topHeader}>
-        <button onClick={updateSlidbar}>Display Slider</button>
+        <button onClick={updateSidebar}>Display Slider</button>
         <button onClick={updatePost}> Display Posts</button>
       </div>
     </>
