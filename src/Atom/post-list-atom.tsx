@@ -1,13 +1,12 @@
-import React from "react";
 import { atom, Atom } from "@mongez/react-atom";
 
 type PostListAtomType = {
-    posts:[],
+    posts:any[],
     loading:boolean,
     error:string
 };
 export const PostListAtom: Atom <PostListAtomType> = atom({
-  key: "Manege_Posts",
+  key: "manege_posts",
   default: {
     posts:[],
     loading:true,

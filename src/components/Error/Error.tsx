@@ -1,15 +1,14 @@
+import { PostListAtom } from "../../Atom/post-list-atom";
 import styles from "./style.module.scss";
 
-type Props = {
-  catchError : string
-}
+export default function Error() {
+  const error = PostListAtom.use("error");
 
-export default function Error({ catchError }:Props) {
-  if (!catchError) return null;
+  if (!error) return null;
+
   return (
     <>
-      <h1 className={styles.error}>
-        OOPS! {catchError}</h1>
+      <h1 className={styles.error}>OOPS! {error}</h1>
     </>
   );
 }
