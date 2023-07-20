@@ -5,7 +5,6 @@ import Error from "../Error/Error";
 import { Link } from "@mongez/react-router";
 import { trans } from "@mongez/localization";
 import { getPosts } from "../services/posts-service";
-import DropdownTest from "../DropdownTest/DropdownTest";
 import ViewAllPostsBtn from "../ViewAllPostsButton/ViewAllPostsBtn";
 export default function PostsList() {
   const [posts, setPosts] = useState([]);

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import Helmet from "@mongez/react-helmet";
+// import ContactForm from "../ContactForm/ContactForm";
 
 const Contact: React.FC = () => {
   return (
@@ -11,8 +12,8 @@ const Contact: React.FC = () => {
         description="Short description about my store"
         keywords={["online", "store", "electronics"]}
       />
-      <div className={styles.about}>
-        <h1>Contact</h1>
+      <div className={styles.Contact}>
+        {/* <ContactForm/> */}
       </div>
     </>
   );

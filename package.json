@@ -17,6 +17,8 @@
     "@mongez/http": "^2.2.4",
     "@mongez/localization": "^2.2.2",
     "@mongez/react": "^3.0.6",
+    "@mongez/react-atom": "^3.1.0",
+    "@mongez/react-form": "^2.0.15",
     "@mongez/react-helmet": "^1.0.9",
     "@mongez/react-router": "^2.1.22",
     "@mongez/reinforcements": "^2.3.6",
